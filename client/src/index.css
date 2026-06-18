@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   GLOBAL BASE STYLES — Quiet Luxury Theme
+   ============================================ */
+
+:root {
+  --ivory:     #FAF7F2;
+  --onyx:      #1A1A1A;
+  --champagne: #C9A24B;
+  --emerald:   #0B3D2E;
+  --burgundy:  #6B1E3C;
+  --warmgrey:  #4A4A4A;
+  --hairline:  #E4DFD6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--onyx);
+  font-family: 'Inter', 'Manrope', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* Headings use serif font */
+h1, h2, h3, .font-serif {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  line-height: 1.2;
+}
+
+/* Thin gold divider utility */
+.divider-gold {
+  border: none;
+  border-top: 1px solid var(--champagne);
+  opacity: 0.4;
+}
+
+.divider-hairline {
+  border: none;
+  border-top: 1px solid var(--hairline);
+}
+
+/* Skeleton shimmer loader */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #F0EBE3 25%,
+    #FAF7F2 50%,
+    #F0EBE3 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Card image zoom effect */
+.card-image-wrap {
+  overflow: hidden;
+}
+
+.card-image-wrap img {
+  transition: transform 700ms ease;
+}
+
+.card-image-wrap:hover img {
+  transform: scale(1.07);
+}
+
+/* Button base styles */
+.btn-primary {
+  @apply bg-onyx text-ivory font-sans text-xs font-medium tracking-widest uppercase px-8 py-3
+         transition-all duration-300 hover:bg-champagne hover:text-onyx;
+}
+
+.btn-gold {
+  @apply bg-champagne text-onyx font-sans text-xs font-medium tracking-widest uppercase px-8 py-3
+         transition-all duration-300 hover:bg-champagne-dark hover:text-ivory;
+}
+
+.btn-outline {
+  @apply border border-onyx text-onyx font-sans text-xs font-medium tracking-widest uppercase px-8 py-3
+         transition-all duration-300 hover:bg-onyx hover:text-ivory;
+}
+
+.btn-ghost {
+  @apply text-champagne font-sans text-xs font-medium tracking-widest uppercase px-4 py-2
+         transition-all duration-300 hover:text-champagne-dark;
+}
+
+/* Input styles */
+.input-luxury {
+  @apply w-full bg-transparent border-b border-hairline text-onyx font-sans text-sm py-3 px-0
+         placeholder-warmgrey/50 focus:outline-none focus:border-champagne transition-colors duration-300;
+}
+
+.input-box {
+  @apply w-full bg-ivory border border-hairline text-onyx font-sans text-sm py-3 px-4
+         placeholder-warmgrey/50 focus:outline-none focus:border-champagne transition-colors duration-300;
+}
+
+/* Tag / badge styles */
+.tag {
+  @apply inline-block text-xs font-sans font-medium tracking-wider uppercase px-3 py-1;
+}
+
+.tag-emerald {
+  @apply tag bg-emerald/10 text-emerald;
+}
+
+.tag-gold {
+  @apply tag bg-champagne/20 text-champagne-dark;
+}
+
+.tag-burgundy {
+  @apply tag bg-burgundy/10 text-burgundy;
+}
+
+.tag-grey {
+  @apply tag bg-onyx/10 text-warmgrey;
+}
+
+/* Page section wrapper */
+.section-pad {
+  @apply px-4 py-16 md:px-8 lg:px-16;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hairline);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--champagne);
+}
+
+/* Selection */
+::selection {
+  background: var(--champagne);
+  color: var(--onyx);
+}
