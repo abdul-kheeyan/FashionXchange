@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import api from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import { formatValue } from '../utils/valueCalculator';
+import { getImageUrl } from '../utils/imageUtils';
 
 const DashboardPage = () => {
   const { user, updateUser } = useAuth();
@@ -148,9 +149,7 @@ const DashboardPage = () => {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {myListings.map(item => {
-                    const imgUrl = item.images?.[0]
-                      ? (item.images[0].startsWith('http') ? item.images[0] : `http://localhost:5000${item.images[0]}`)
-                      : '';
+                    const imgUrl = getImageUrl(item.images?.[0]);
                     return (
                       <div key={item._id} className="border border-hairline bg-white p-4 flex space-x-4 items-center justify-between">
                         <div className="flex items-center space-x-3">

@@ -6,6 +6,7 @@ import api from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import { formatValue } from '../utils/valueCalculator';
 import ItemCard from '../components/ItemCard';
+import { getImageUrl, revokeObjectUrl } from '../utils/imageUtils';
 
 const ItemDetailPage = () => {
   const { id } = useParams();
@@ -98,7 +99,7 @@ const ItemDetailPage = () => {
         <div className="space-y-4">
           <div className="aspect-[3/4] border border-hairline overflow-hidden relative bg-white">
             <img
-              src={activeImage && activeImage.startsWith('http') ? activeImage : `http://localhost:5000${activeImage || ''}`}
+              src={getImageUrl(activeImage)}
               alt={item.title}
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             />
@@ -112,7 +113,7 @@ const ItemDetailPage = () => {
                   className={`aspect-square border overflow-hidden bg-white ${activeImage === img ? 'border-champagne border-2' : 'border-hairline'}`}
                 >
                   <img
-                    src={img && img.startsWith('http') ? img : `http://localhost:5000${img || ''}`}
+                    src={getImageUrl(img)}
                     alt="thumbnail"
                     className="w-full h-full object-cover"
                   />
@@ -194,7 +195,7 @@ const ItemDetailPage = () => {
             <div className="border border-hairline p-4 flex items-center space-x-4 bg-white/50">
               <div className="w-12 h-12 rounded-full border border-champagne overflow-hidden shrink-0">
                 <img
-                  src={item.owner.profileImage?.startsWith('http') ? item.owner.profileImage : `http://localhost:5000${item.owner.profileImage || '/uploads/default-avatar.png'}`}
+                  src={getImageUrl(item.owner.profileImage)}
                   alt={item.owner.name}
                   className="w-full h-full object-cover"
                 />
